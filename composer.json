@@ -1,0 +1,45 @@
+{
+    "name":        "gregurco/guzzle-bundle-middleware-plugin",
+    "type":        "library",
+    "description": "A generic middleware plugin for Guzzle Bundle, a PHP HTTP client library and framework for building RESTful web service clients",
+    "keywords":    ["middleware", "plugin", "framework", "http", "rest", "web service", "curl", "client", "HTTP client"],
+    "homepage":    "https://github.com/wizbit/GuzzleBundleMiddlewarePlugin",
+    "license":     "MIT",
+
+    "authors": [
+        {
+            "name":     "Marcus Speight",
+            "email":    "marcus.speight@hotmail.co.uk"
+        },
+        {
+            "name":     "Community",
+            "homepage": "https://github.com/wizbit/GuzzleBundleMiddlewarePlugin/graphs/contributors"
+        }
+    ],
+
+    "require": {
+        "php":                              "^7.0",
+        "guzzlehttp/guzzle":                "^6.0",
+        "eightpoints/guzzle-bundle":        "~7.0",
+        "symfony/http-kernel":              "~2.7|~3.0|~4.0",
+        "symfony/config":                   "~2.7|~3.0|~4.0",
+        "symfony/dependency-injection":     "~2.7|~3.0|~4.0",
+        "symfony/expression-language":      "~2.7|~3.0|~4.0"
+    },
+
+    "require-dev": {
+        "phpunit/phpunit":          "~6.1"
+    },
+
+    "autoload": {
+        "psr-4": {
+            "Wizbit\\Bundle\\GuzzleBundleCachePlugin\\": "src"
+        }
+    },
+
+    "autoload-dev": {
+        "psr-4": {
+            "Wizbit\\Bundle\\GuzzleBundleCachePlugin\\Tests\\": "tests"
+        }
+    }
+}
