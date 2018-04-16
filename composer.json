@@ -1,5 +1,5 @@
 {
-    "name":        "gregurco/guzzle-bundle-middleware-plugin",
+    "name":        "wizbit/guzzle-bundle-middleware-plugin",
     "type":        "library",
     "description": "A generic middleware plugin for Guzzle Bundle, a PHP HTTP client library and framework for building RESTful web service clients",
     "keywords":    ["middleware", "plugin", "framework", "http", "rest", "web service", "curl", "client", "HTTP client"],
