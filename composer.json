@@ -33,13 +33,13 @@
 
     "autoload": {
         "psr-4": {
-            "Wizbit\\Bundle\\GuzzleBundleCachePlugin\\": "src"
+            "Wizbit\\Bundle\\GuzzleBundleMiddlewarePlugin\\": "src"
         }
     },
 
     "autoload-dev": {
         "psr-4": {
-            "Wizbit\\Bundle\\GuzzleBundleCachePlugin\\Tests\\": "tests"
+            "Wizbit\\Bundle\\GuzzleBundleMiddlewarePlugin\\Tests\\": "tests"
         }
     }
 }
