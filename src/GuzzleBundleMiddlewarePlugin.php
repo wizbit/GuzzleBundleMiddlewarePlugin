@@ -1,6 +1,6 @@
 <?php
 
-namespace Wizbit\Bundle\GuzzleBundleCachePlugin;
+namespace Wizbit\Bundle\GuzzleBundleMiddlewarePlugin;
 
 use EightPoints\Bundle\GuzzleBundle\EightPointsGuzzleBundlePlugin;
 use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
