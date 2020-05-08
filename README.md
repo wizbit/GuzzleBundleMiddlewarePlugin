@@ -11,15 +11,6 @@ This plugin integrates a generic way to include all middleware.
 ### Installation
 Using [composer][2]:
 
-##### composer.json
-``` json
-{
-    "require": {
-        "wizbit/guzzle-bundle-middleware-plugin": "^1.0"
-    }
-}
-```
-
 ##### command line
 ``` bash
 $ composer require wizbit/guzzle-bundle-middleware-plugin

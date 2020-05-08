@@ -2,7 +2,7 @@
 
 namespace Wizbit\Bundle\GuzzleBundleMiddlewarePlugin;
 
-use EightPoints\Bundle\GuzzleBundle\EightPointsGuzzleBundlePlugin;
+use EightPoints\Bundle\GuzzleBundle\PluginInterface;
 use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Definition;
@@ -10,30 +10,20 @@ use Symfony\Component\DependencyInjection\Exception\InvalidArgumentException;
 use Symfony\Component\DependencyInjection\Reference;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class GuzzleBundleMiddlewarePlugin extends Bundle implements EightPointsGuzzleBundlePlugin
+final class GuzzleBundleMiddlewarePlugin extends Bundle implements PluginInterface
 {
-    /**
-     * The name of this plugin. It will be used as the configuration key.
-     *
-     * @return string
-     */
     public function getPluginName(): string
     {
         return 'middleware';
     }
 
-    /**
-     * @param \Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition $pluginNode
-     *
-     * @return void
-     */
-    public function addConfiguration(ArrayNodeDefinition $pluginNode)
+    public function addConfiguration(ArrayNodeDefinition $pluginNode): void
     {
         $pluginNode
             ->beforeNormalization()
             ->ifNotInArray(['enabled'])
-                ->then(function($value) {
-                    return array('middleware' => $value);
+                ->then(static function($value) {
+                    return ['middleware' => $value];
                 })
             ->end()
             ->canBeEnabled()
@@ -54,29 +44,11 @@ class GuzzleBundleMiddlewarePlugin extends Bundle implements EightPointsGuzzleBu
         ;
     }
 
-    /**
-     * Load this plugin: define services, load service definition files, etc.
-     *
-     * @param array                                                   $configs
-     * @param \Symfony\Component\DependencyInjection\ContainerBuilder $container
-     *
-     * @return void
-     */
-    public function load(array $configs, ContainerBuilder $container)
+    public function load(array $configs, ContainerBuilder $container) : void
     {
     }
 
-    /**
-     * Add configuration nodes for this plugin to the provided node.
-     *
-     * @param array                                                   $config
-     * @param \Symfony\Component\DependencyInjection\ContainerBuilder $container
-     * @param string                                                  $clientName
-     * @param \Symfony\Component\DependencyInjection\Definition       $handler
-     *
-     * @return void
-     */
-    public function loadForClient(array $config, ContainerBuilder $container, string $clientName, Definition $handler)
+    public function loadForClient(array $config, ContainerBuilder $container, string $clientName, Definition $handler) : void
     {
         if (true === $config['enabled']) {
             foreach ($config['middleware'] as $middleware) {
@@ -85,13 +57,6 @@ class GuzzleBundleMiddlewarePlugin extends Bundle implements EightPointsGuzzleBu
         }
     }
 
-    /**
-     * Parses a callable.
-     *
-     * @param string|array $callable A callable
-     *
-     * @return string|array A parsed callable
-     */
     private function parseCallable($callable)
     {
         if (is_string($callable)) {
